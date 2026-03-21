@@ -4,11 +4,16 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const query = searchParams.get("query") || "Hits";
   const limit = searchParams.get("limit") || "5";
+  const type = searchParams.get("type") || "term"; // term or lookup
 
   try {
-    const response = await fetch(
-      `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&media=music&entity=song&limit=${limit}`
-    );
+    let url = `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&media=music&entity=song&limit=${limit}`;
+    
+    if (type === "lookup") {
+      url = `https://itunes.apple.com/lookup?id=${encodeURIComponent(query)}&entity=song`;
+    }
+
+    const response = await fetch(url);
     const data = await response.json();
 
     const songs = data.results

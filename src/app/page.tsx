@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useEffect, useState } from "react";
 import { Play } from "lucide-react";
 import { useAudioStore, Song } from "@/store/useAudioStore";
@@ -25,19 +25,19 @@ export default function Home() {
   useEffect(() => {
     const fetchMusic = async () => {
       const queries = [
-        { query: "Drake", title: "Drake Essentials" },
-        { query: "Kanye West", title: "Kanye West Favorites" },
-        { query: "Kendrick Lamar", title: "Kendrick Lamar Hits" },
-        { query: "Billie Eilish", title: "Billie Eilish Showcase" },
-        { query: "Taylor Swift", title: "Taylor Swift" },
-        { query: "Marathi love song", title: "Marathi Love Songs" },
+        { query: "Drake", title: "Drake Essentials", type: "term" },
+        { query: "Kanye West", title: "Kanye West Favorites", type: "term" },
+        { query: "Kendrick Lamar", title: "Kendrick Lamar Hits", type: "term" },
+        { query: "Billie Eilish", title: "Billie Eilish Showcase", type: "term" },
+        { query: "Taylor Swift", title: "Taylor Swift", type: "term" },
+        // Exact Track IDs for: Kitida Navyane, Ka Kalena, Hrudayat Vaje Something, Kaakan
+        { query: "1529451172,1708547699,1529451161,1529546285", title: "Marathi Love Songs", type: "lookup" },
       ];
 
       try {
         const promises = queries.map(async (q) => {
-          const response = await fetch(`/api/explore?query=${encodeURIComponent(q.query)}`);
+          const response = await fetch(`/api/explore?query=${encodeURIComponent(q.query)}&type=${q.type}`);
           const data = await response.json();
-          
           return { title: q.title, songs: data.songs || [] };
         });
 
@@ -139,3 +139,4 @@ export default function Home() {
     </div>
   );
 }
+
