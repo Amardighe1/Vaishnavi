@@ -25,18 +25,9 @@ export default function SearchPage() {
   const performSearch = async (searchTerm: string) => {
     setIsLoading(true);
     try {
-      const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(searchTerm)}&media=music&entity=song&limit=24`);
+      const res = await fetch(`/api/explore?query=${encodeURIComponent(searchTerm)}&limit=24`);
       const data = await res.json();
-      const fetchedSongs = data.results
-        .filter((track: any) => track.previewUrl)
-        .map((track: any) => ({
-          id: track.trackId.toString(),
-          title: track.trackName,
-          artist: track.artistName,
-          coverUrl: track.artworkUrl100.replace("100x100bb", "600x600bb"),
-          audioUrl: track.previewUrl,
-        }));
-      setResults(fetchedSongs);
+      setResults(data.songs || []);
     } catch (err) {
       console.error("Search failed:", err);
     } finally {

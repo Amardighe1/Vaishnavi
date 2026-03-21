@@ -35,20 +35,10 @@ export default function Home() {
 
       try {
         const promises = queries.map(async (q) => {
-          const response = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(q.query)}&media=music&entity=song&limit=5`);
+          const response = await fetch(`/api/explore?query=${encodeURIComponent(q.query)}`);
           const data = await response.json();
           
-          const songs = data.results
-            .filter((track: any) => track.previewUrl)
-            .map((track: any) => ({
-              id: track.trackId.toString(),
-              title: track.trackName,
-              artist: track.artistName,
-              coverUrl: track.artworkUrl100.replace("100x100bb", "600x600bb"),
-              audioUrl: track.previewUrl,
-            }));
-
-          return { title: q.title, songs };
+          return { title: q.title, songs: data.songs || [] };
         });
 
         const results = await Promise.all(promises);
