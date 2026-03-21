@@ -12,6 +12,14 @@ export default function Home() {
   const { playSong, currentSong, isPlaying, togglePlay } = useAudioStore();
   const [sections, setSections] = useState<Section[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [greeting, setGreeting] = useState("Good evening");
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour < 12) setGreeting("Good morning");
+    else if (hour < 18) setGreeting("Good afternoon");
+    else setGreeting("Good evening");
+  }, []);
 
   // Fetch curated sections from iTunes API
   useEffect(() => {
@@ -72,7 +80,7 @@ export default function Home() {
 
       <div className="relative z-10 flex flex-col pt-8 sm:pt-16">
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-text-secondary">
-          Good evening, <span className="text-love-soft drop-shadow-md">My Love</span>
+          {greeting}, <span className="text-love-soft drop-shadow-md">My Love</span>
         </h1>
         
         {!isLoading && heroSong && (
