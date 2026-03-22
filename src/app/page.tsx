@@ -12,6 +12,24 @@ export default function Home() {
   const { playSong, currentSong, isPlaying, togglePlay } = useAudioStore();
   const [sections, setSections] = useState<Section[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [greeting, setGreeting] = useState("Welcome back, my love");
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    
+    // Create a romantic, moody, time-based greeting logic
+    if (hour >= 23 || hour < 4) { // 11 PM to 3:59 AM
+      setGreeting("Late night vibes, my love");
+    } else if (hour >= 4 && hour < 12) { // 4 AM to 11:59 AM
+      setGreeting("Good morning, beautiful");
+    } else if (hour >= 12 && hour < 17) { // 12 PM to 4:59 PM
+      setGreeting("Good afternoon, gorgeous");
+    } else if (hour >= 17 && hour < 21) { // 5 PM to 8:59 PM
+      setGreeting("Good evening, my love");
+    } else { // 9 PM to 10:59 PM
+      setGreeting("Sweet dreams are made of our songs");
+    }
+  }, []);
 
   // Fetch curated sections from iTunes API
   useEffect(() => {
@@ -45,12 +63,12 @@ export default function Home() {
     fetchMusic();
   }, []);
 
-  const handlePlay = (song: Song, e?: React.MouseEvent) => {
+  const handlePlay = (song: Song, sectionSongs?: Song[], e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     if (currentSong?.id === song.id) {
       togglePlay();
     } else {
-      playSong(song, songs);
+      playSong(song, sectionSongs);
     }
   };
 
@@ -61,10 +79,14 @@ export default function Home() {
       <div className="absolute top-0 left-0 right-0 h-80 bg-gradient-love opacity-20 lg:rounded-t-lg pointer-events-none -mt-4 -ml-4 -mr-4" />
 
       <div className="relative z-10 flex flex-col pt-8 sm:pt-16">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-8 tracking-tight text-white drop-shadow-md pb-2">
+          {greeting} <span>❤️</span>
+        </h1>
+        
         {!isLoading && heroSong && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-10">
             <div 
-              onClick={() => handlePlay(heroSong)}
+              onClick={() => handlePlay(heroSong, sections[0]?.songs)}
               className="group flex items-center bg-white/5 hover:bg-white/20 backdrop-blur-sm transition-all rounded-md overflow-hidden cursor-pointer shadow-black/10 shadow-lg border border-white/5"
             >
               <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 relative overflow-hidden bg-neutral-800">
@@ -102,14 +124,14 @@ export default function Home() {
                   return (
                     <div 
                       key={song.id}
-                      onClick={() => handlePlay(song)}
+                      onClick={() => handlePlay(song, section.songs)}
                       className="bg-white/5 sm:bg-surfaceHover p-3 sm:p-4 rounded-lg cursor-pointer group hover:bg-white/10 transition-all border border-white/5 hover:border-white/10 shadow-lg"
                     >
                       <div className="w-full aspect-square bg-neutral-800 rounded-md mb-4 shadow-lg overflow-hidden relative">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={song.coverUrl} alt={song.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                         <button 
-                          onClick={(e) => handlePlay(song, e)}
+                          onClick={(e) => handlePlay(song, section.songs, e)}
                           className={`absolute bottom-2 right-2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-love-accent text-white flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-105 
                           ${isThisPlaying ? "opacity-100 translate-y-0" : "opacity-100 sm:opacity-0 sm:group-hover:opacity-100 -translate-y-2 sm:translate-y-4 sm:group-hover:translate-y-0"}`}
                         >
@@ -129,4 +151,5 @@ export default function Home() {
     </div>
   );
 }
+
 
