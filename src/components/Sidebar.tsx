@@ -12,7 +12,7 @@ export default function Sidebar() {
   const { likedSongs, user, logout } = useUserStore();
 
   return (
-    <aside className="w-64 max-lg:hidden flex flex-col gap-3 relative z-40 shadow-2xl pl-2 pt-2 pb-2">
+    <aside className="w-64 max-lg:hidden flex flex-col gap-3 relative z-40 shadow-2xl pl-2 pt-2 pb-[120px]">
       <nav className="bg-surface/60 backdrop-blur-2xl border border-white/5 rounded-2xl p-6 flex flex-col gap-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
         <Link
           href="/" 

@@ -24,7 +24,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
-        <div className="w-full flex-shrink-0 z-[60] fixed bottom-0 left-0 right-0 flex flex-col items-stretch pb-safe bg-[#0A0306]/40 backdrop-blur-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">`n
+        <div className="w-full flex-shrink-0 z-[60] fixed bottom-0 left-0 right-0 flex flex-col items-stretch pb-safe bg-[#0A0306]/40 backdrop-blur-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
           <BottomPlayer />
           <MobileNav />
         </div>
