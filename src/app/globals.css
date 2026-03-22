@@ -7,12 +7,12 @@
 }
 
 body {
-  background-color: #0A0306; /* Match the tailwind config * /
+  background-color: #0A0306; /* Match the tailwind config */
   color: #FFFFFF;
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: -0.015em; /* A slightly premium, tight look * /
+  letter-spacing: -0.015em; /* A slightly premium, tight look */
 }
 
 ::-webkit-scrollbar {
@@ -22,7 +22,7 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 42, 95, 0.3); /* Love accent scrollbar * /
+  background-color: rgba(255, 42, 95, 0.3); /* Love accent scrollbar */
   border-radius: 5px;
   border: 2px solid transparent;
   background-clip: padding-box;
@@ -37,3 +37,4 @@ body {
 .animate-delay-4000 {
   animation-delay: 4s;
 }
+
