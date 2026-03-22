@@ -88,8 +88,8 @@ function LoginContent() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] px-4">
-      <div className="w-full max-w-md bg-surface p-8 rounded-2xl shadow-2xl border border-white/5 relative overflow-hidden">
+    <div className="flex flex-col items-center py-10 pb-24 sm:justify-center min-h-full px-4">
+      <div className="w-full max-w-md bg-surface p-6 sm:p-8 rounded-2xl shadow-2xl border border-white/5 relative overflow-hidden my-auto">
         
         {step === "details" && (
           <div className="flex bg-black/40 p-1 rounded-full mb-8">
