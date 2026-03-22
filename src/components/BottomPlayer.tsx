@@ -60,7 +60,7 @@ export default function BottomPlayer() {
       
       {/* Hide bottom player when full screen mode is active */}
       {!isFullScreen && (
-        <div className="bg-[#181818]/95 backdrop-blur-xl border-t border-[#282828] h-[70px] sm:h-[90px] w-full px-2 sm:px-4 flex items-center justify-between z-40 relative">
+        <div className="bg-surface/80 backdrop-blur-2xl border-t border-love-soft/20 h-[80px] sm:h-[100px] w-full px-4 sm:px-8 flex items-center justify-between z-40 relative shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
           
           {/* Left side: Track Info - Click to expand */}
           <div className="w-[30%] min-w-[180px] hidden sm:flex items-center gap-4">
@@ -72,7 +72,7 @@ export default function BottomPlayer() {
                 >
                   <div className="relative">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={currentSong.coverUrl} className="w-14 h-14 rounded shadow-lg object-cover group-hover:opacity-80 transition-opacity" alt="Cover" />
+                    <img src={currentSong.coverUrl} className="w-14 h-14 rounded-xl shadow-[0_4px_15px_rgba(255,42,95,0.2)] object-cover border border-white/10 group-hover:opacity-80 transition-opacity" alt="Cover" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 rounded">
                       <Maximize2 size={16} className="text-white" />
                     </div>
@@ -107,7 +107,7 @@ export default function BottomPlayer() {
               <div className="flex items-center gap-3 w-[70%] overflow-hidden mr-2">
                  {currentSong && (
                    /* eslint-disable-next-line @next/next/no-img-element */
-                   <img src={currentSong.coverUrl} className="w-10 h-10 rounded shadow-lg object-cover flex-shrink-0" alt="Cover" />
+                   <img src={currentSong.coverUrl} className="w-10 h-10 rounded-lg shadow-[0_4px_10px_rgba(255,42,95,0.2)] object-cover border border-white/10 flex-shrink-0" alt="Cover" />
                  )}
                  <div className="flex flex-col truncate">
                    <span className="text-white text-[14px] truncate pb-[2px]">{currentSong?.title || 'No song playing'}</span>
@@ -119,7 +119,7 @@ export default function BottomPlayer() {
                 <button 
                   onClick={(e) => { e.stopPropagation(); togglePlay(); }}
                   disabled={!currentSong}
-                  className={`w-9 h-9 rounded-full flex items-center justify-center bg-white text-black hover:scale-105 transition-transform ${!currentSong && "opacity-50 cursor-not-allowed"}`}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-love-accent to-love-magenta text-white shadow-[0_4px_15px_rgba(255,42,95,0.4)] hover:shadow-[0_4px_25px_rgba(255,42,95,0.8)] hover:scale-110 transition-all ${!currentSong && "opacity-50 cursor-not-allowed"}`}
                 >
                   {isPlaying ? <Pause className="fill-current stroke-0" size={18} /> : <Play className="fill-current stroke-0 ml-1" size={18} />}
                 </button>
@@ -145,8 +145,8 @@ export default function BottomPlayer() {
             <div className="w-full hidden sm:flex items-center gap-2 text-[11px] text-text-secondary">
               <span>{formatTime(currentTime)}</span>
               <div className="group relative w-full h-1 bg-surfaceHover rounded-full cursor-pointer overflow-hidden">
-                <div 
-                  className="absolute left-0 top-0 h-full bg-white group-hover:bg-love-accent transition-colors"
+                <div
+                  className="absolute left-0 top-0 h-full bg-gradient-to-r from-love-soft to-love-accent group-hover:to-love-magenta transition-colors shadow-[0_0_10px_rgba(255,42,95,0.8)]"
                   style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
                 />
                 <input 
@@ -195,3 +195,4 @@ export default function BottomPlayer() {
     </>
   );
 }
+
