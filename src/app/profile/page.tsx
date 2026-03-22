@@ -153,7 +153,7 @@ export default function ProfilePage() {
               )}
             </div>
 
-            <div className="pt-6 border-t border-white/5 flex justify-end">
+            <div className="pt-6 border-t border-white/5 flex justify-center">
               <button
                 type="button"
                 onClick={handleLogout}

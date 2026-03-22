@@ -5,7 +5,6 @@ import { useAudioStore } from "@/store/useAudioStore";
 import { useUserStore } from "@/store/useUserStore";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import FullScreenPlayer from "./FullScreenPlayer";
 
 export default function BottomPlayer() {
   const { currentSong, isPlaying, volume, togglePlay, playNext, playPrev, setProgress, currentTime, duration, setFullScreen, isFullScreen } = useAudioStore();
@@ -53,8 +52,6 @@ export default function BottomPlayer() {
 
   return (
     <>
-      <FullScreenPlayer />
-      
       {/* ALWAYS RENDER AUDIO SO IT DOESN'T STOP WHEN FULL SCREEN TOGGLES */}
       {currentSong && <audio ref={audioRef} src={currentSong.audioUrl} onTimeUpdate={handleTimeUpdate} onEnded={playNext} id="audio-player" />}
       

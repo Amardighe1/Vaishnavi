@@ -21,11 +21,11 @@ export default function LikedSongsPage() {
 
   return (
     <div className="flex flex-col min-h-full pb-32 p-4 sm:p-6 lg:pt-8 bg-gradient-to-b from-[#2a131a] to-[#121212]">
-      <div className="flex flex-col md:flex-row items-end gap-6 mb-8 mt-10 md:mt-20 px-2 lg:px-4">
+      <div className="flex flex-col md:flex-row items-center md:items-end gap-6 mb-8 mt-10 md:mt-20 px-2 lg:px-4">
         <div className="w-48 h-48 sm:w-56 sm:h-56 bg-gradient-to-br from-love-magenta to-love-accent shadow-[0_10px_40px_rgba(229,9,20,0.5)] flex items-center justify-center flex-shrink-0">
           <Heart className="w-24 h-24 text-white fill-current shadow-lg" />
         </div>
-        <div className="flex flex-col gap-2 w-full">
+        <div className="flex flex-col gap-2 w-full items-center md:items-start text-center md:text-left">
           <span className="text-white text-sm font-semibold hidden md:block">Playlist</span>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tighter w-full truncate py-2">Liked Songs</h1>
           <div className="flex items-center gap-2 text-sm text-text-secondary mt-2">
