@@ -68,6 +68,7 @@ export default function Home() {
               className="group flex items-center bg-white/5 hover:bg-white/20 backdrop-blur-sm transition-all rounded-md overflow-hidden cursor-pointer shadow-black/10 shadow-lg border border-white/5"
             >
               <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 relative overflow-hidden bg-neutral-800">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={heroSong.coverUrl} alt="Our Playlist" className="object-cover w-full h-full" />
                   <div className="absolute inset-0 bg-black/20" />
               </div>
@@ -105,6 +106,7 @@ export default function Home() {
                       className="bg-white/5 sm:bg-surfaceHover p-3 sm:p-4 rounded-lg cursor-pointer group hover:bg-white/10 transition-all border border-white/5 hover:border-white/10 shadow-lg"
                     >
                       <div className="w-full aspect-square bg-neutral-800 rounded-md mb-4 shadow-lg overflow-hidden relative">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={song.coverUrl} alt={song.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                         <button 
                           onClick={(e) => handlePlay(song, e)}

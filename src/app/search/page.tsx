@@ -84,6 +84,7 @@ export default function SearchPage() {
                 className="bg-white/5 sm:bg-surfaceHover p-3 sm:p-4 rounded-lg cursor-pointer group hover:bg-white/10 transition-all border border-white/5 hover:border-white/10 shadow-lg"
               >
                 <div className="w-full aspect-square bg-neutral-800 rounded-md mb-4 shadow-lg overflow-hidden relative">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={song.coverUrl} alt={song.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <button 
                     onClick={(e) => handlePlay(song, e)}

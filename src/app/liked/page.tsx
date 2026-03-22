@@ -81,6 +81,7 @@ export default function LikedSongsPage() {
                    <Play className="w-4 h-4 text-white fill-current" />
                 </div>
 
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={song.coverUrl} className="w-10 h-10 object-cover rounded shadow" alt="cover" loading="lazy" />
                 
                 <div className="flex flex-col flex-1 overflow-hidden">
