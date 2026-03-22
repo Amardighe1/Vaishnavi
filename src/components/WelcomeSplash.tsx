@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -68,10 +68,10 @@ export default function WelcomeSplash() {
                  initial={{ y: 30, opacity: 0 }}
                  animate={{ y: 0, opacity: 1 }}
                  transition={{ delay: 0.9, duration: 0.8, ease: "easeOut" }}
-                 className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4"
+                 className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-4 w-full"
               >
                 <span className="text-3xl sm:text-5xl font-light text-white/90 tracking-wider">Specially For</span>
-                <span className="text-5xl sm:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-love-soft via-white to-love-soft drop-shadow-[0_0_15px_rgba(255,42,95,0.5)] pb-2">
+                <span className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-love-soft via-white to-love-soft drop-shadow-[0_0_15px_rgba(255,42,95,0.5)] pb-2">
                   You
                 </span>
               </motion.div>
@@ -91,3 +91,4 @@ export default function WelcomeSplash() {
     </AnimatePresence>
   );
 }
+

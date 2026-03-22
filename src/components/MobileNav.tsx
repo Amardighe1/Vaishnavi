@@ -11,7 +11,7 @@ export default function MobileNav() {
   const { user } = useUserStore();
 
   return (
-    <div className="lg:hidden fixed bottom-[80px] sm:bottom-[100px] w-full bg-surface/80 backdrop-blur-2xl border-t border-love-soft/20 z-40 px-6 py-2 pb-safe flex justify-between items-center text-text-secondary shadow-[0_-5px_30px_rgba(0,0,0,0.5)]">
+    <div className="lg:hidden relative w-full bg-transparent border-t border-love-soft/20 z-40 px-6 py-3 flex justify-between items-center text-text-secondary">
       <Link 
         href="/" 
         className={clsx(

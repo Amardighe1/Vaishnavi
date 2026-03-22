@@ -1,4 +1,4 @@
-import "./globals.css";
+﻿import "./globals.css";
 import React from "react";
 import Sidebar from "@/components/Sidebar";
 import BottomPlayer from "@/components/BottomPlayer";
@@ -18,20 +18,28 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex flex-col h-screen overflow-hidden bg-background">       <WelcomeSplash />        <DataInitializer />        <div className="flex flex-1 overflow-hidden lg:pt-3 lg:px-3 gap-3 pb-[85px] lg:pb-[110px]">
+      <body className="flex flex-col h-[100dvh] overflow-hidden bg-background">       <WelcomeSplash />        <DataInitializer />        <div className="flex flex-1 overflow-hidden lg:pt-3 lg:px-3 gap-3 pb-0">
           <Sidebar />
-          <main className="flex-1 bg-surface/40 backdrop-blur-2xl lg:rounded-3xl border border-white/5 overflow-y-auto relative p-4 lg:p-8 mb-safe shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] relative z-0">
+          <main className="flex-1 bg-surface/40 backdrop-blur-2xl lg:rounded-3xl border border-white/5 overflow-y-auto overflow-x-hidden relative p-4 lg:p-8 pb-[160px] md:pb-[140px] lg:pb-[120px] mb-safe shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] z-0">
             {children}
           </main>
         </div>
-        <MobileNav />
-        <div className="h-[80px] sm:h-[100px] w-full flex-shrink-0 z-50 fixed bottom-0 left-0 right-0">
+        <div className="w-full flex-shrink-0 z-[60] fixed bottom-0 left-0 right-0 flex flex-col items-stretch pb-safe bg-[#0A0306]/40 backdrop-blur-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">`n
           <BottomPlayer />
+          <MobileNav />
         </div>
       </body>
     </html>
   );
 }
+
+
+
+
+
+
+
+
 
 
 

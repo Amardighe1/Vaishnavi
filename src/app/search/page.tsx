@@ -45,8 +45,8 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-full pb-32 lg:pb-8 relative p-4 sm:p-6 lg:pt-8">
-      <div className="relative mb-8 max-w-xl w-full sticky top-0 z-20 pt-4 pb-4 bg-surface">
+    <div className="flex flex-col min-h-full relative px-2 sm:px-6 lg:pt-4">
+      <div className="relative mb-8 max-w-xl w-full sticky top-0 z-20 pt-4 pb-4 bg-transparent backdrop-blur-xl">
         <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
         <input 
           type="text" 
@@ -103,3 +103,4 @@ export default function SearchPage() {
     </div>
   );
 }
+

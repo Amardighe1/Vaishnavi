@@ -75,7 +75,7 @@ export default function Home() {
   const heroSong = sections[0]?.songs[0];
 
   return (
-    <div className="flex flex-col min-h-full pb-32 lg:pb-8 relative overflow-hidden">
+    <div className="flex flex-col min-h-full relative overflow-x-hidden">
       {/* Absolute Ambient Background Orbs */}
       <div className="absolute top-[-10%] md:top-[-20%] left-[-10%] w-[500px] h-[500px] bg-love-magenta rounded-full mix-blend-screen filter blur-[150px] opacity-30 animate-blob pointer-events-none" />
       <div className="absolute top-[20%] right-[-10%] w-[400px] h-[400px] bg-love-accent rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob animate-delay-2000 pointer-events-none" />
@@ -84,8 +84,8 @@ export default function Home() {
       <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-love opacity-40 lg:rounded-t-lg pointer-events-none -mt-4 -ml-4 -mr-4" />
 
       <div className="relative z-10 flex flex-col pt-8 sm:pt-16">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-10 tracking-tight drop-shadow-2xl pb-2 bg-clip-text text-transparent bg-gradient-to-r from-love-soft via-white to-love-soft animate-pulseSlow">
-          {greeting} <span className="text-white drop-shadow-[0_0_15px_rgba(255,42,95,0.8)]">❤️</span>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 sm:mb-10 tracking-tight leading-tight sm:leading-tight break-words drop-shadow-2xl pb-2 bg-clip-text text-transparent bg-gradient-to-r from-love-soft via-white to-love-soft animate-pulseSlow">
+          {greeting} <span className="text-white drop-shadow-[0_0_15px_rgba(255,42,95,0.8)]">??</span>
         </h1>
         
         {!isLoading && heroSong && (
@@ -102,7 +102,7 @@ export default function Home() {
               <div className="p-5 flex-1 flex justify-between items-center">
                 <div className="flex flex-col">
                   <span className="font-extrabold text-lg sm:text-xl text-white tracking-tight">Our Special Playlist</span>
-                  <span className="text-sm text-love-soft/90 mt-0.5 font-medium flex items-center gap-1">For you <span className="text-[10px]">✨</span></span>
+                  <span className="text-sm text-love-soft/90 mt-0.5 font-medium flex items-center gap-1">For you <span className="text-[10px]">?</span></span>
                 </div>
                 <button className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-love-accent to-love-magenta text-white flex items-center justify-center shadow-[0_0_20px_rgba(255,42,95,0.5)] group-hover:shadow-[0_0_30px_rgba(255,42,95,0.8)] opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0 hover:scale-110">
                   <Play className="fill-current w-6 h-6 sm:w-7 sm:h-7 ml-1" />
@@ -129,7 +129,7 @@ export default function Home() {
                 <span className="w-2 h-7 rounded-full bg-gradient-to-b from-love-soft to-love-magenta mr-2" />
                 {section.title}
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 sm:gap-7">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-7">
                 {section.songs.map((song) => {
                   const isThisPlaying = currentSong?.id === song.id && isPlaying;
                   return (
@@ -166,5 +166,9 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+
 
 

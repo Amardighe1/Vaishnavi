@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useRef, useEffect } from "react";
 import { Play, Pause, SkipBack, SkipForward, Volume2, Heart, Maximize2 } from "lucide-react";
 import { useAudioStore } from "@/store/useAudioStore";
@@ -60,7 +60,7 @@ export default function BottomPlayer() {
       
       {/* Hide bottom player when full screen mode is active */}
       {!isFullScreen && (
-        <div className="bg-surface/80 backdrop-blur-2xl border-t border-love-soft/20 h-[80px] sm:h-[100px] w-full px-4 sm:px-8 flex items-center justify-between z-40 relative shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+        <div className="bg-transparent h-[80px] sm:h-[100px] w-full px-4 sm:px-8 flex items-center justify-between z-40 relative">
           
           {/* Left side: Track Info - Click to expand */}
           <div className="w-[30%] min-w-[180px] hidden sm:flex items-center gap-4">
