@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import FullScreenPlayer from "./FullScreenPlayer";
 
 export default function BottomPlayer() {
-  const { currentSong, isPlaying, volume, togglePlay, setProgress, currentTime, duration, setFullScreen, isFullScreen } = useAudioStore();
+  const { currentSong, isPlaying, volume, togglePlay, playNext, playPrev, setProgress, currentTime, duration, setFullScreen, isFullScreen } = useAudioStore();
   const { isLiked, toggleLike, user } = useUserStore();
   const router = useRouter();
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -56,7 +56,7 @@ export default function BottomPlayer() {
       <FullScreenPlayer />
       
       {/* ALWAYS RENDER AUDIO SO IT DOESN'T STOP WHEN FULL SCREEN TOGGLES */}
-      {currentSong && <audio ref={audioRef} src={currentSong.audioUrl} onTimeUpdate={handleTimeUpdate} onEnded={togglePlay} id="audio-player" />}
+      {currentSong && <audio ref={audioRef} src={currentSong.audioUrl} onTimeUpdate={handleTimeUpdate} onEnded={playNext} id="audio-player" />}
       
       {/* Hide bottom player when full screen mode is active */}
       {!isFullScreen && (
@@ -128,7 +128,7 @@ export default function BottomPlayer() {
 
             {/* Desktop Playback Controls */}
             <div className="hidden sm:flex items-center gap-6">
-              <SkipBack className="text-text-secondary hover:text-white cursor-pointer fill-current" size={20} />
+              <SkipBack onClick={playPrev} className="text-text-secondary hover:text-white cursor-pointer fill-current" size={20} />
               
               <button 
                 onClick={(e) => { e.stopPropagation(); togglePlay(); }}
@@ -138,7 +138,7 @@ export default function BottomPlayer() {
                 {isPlaying ? <Pause className="fill-current stroke-0" size={18} /> : <Play className="fill-current stroke-0 ml-1" size={18} />}
               </button>
               
-              <SkipForward className="text-text-secondary hover:text-white cursor-pointer fill-current" size={20} />
+              <SkipForward onClick={playNext} className="text-text-secondary hover:text-white cursor-pointer fill-current" size={20} />
             </div>
             
             {/* Progress bar Desktop */}

@@ -40,7 +40,7 @@ export default function SearchPage() {
     if (currentSong?.id === song.id) {
       togglePlay();
     } else {
-      playSong(song);
+      playSong(song, results);
     }
   };
 

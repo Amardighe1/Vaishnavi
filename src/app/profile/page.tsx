@@ -131,7 +131,7 @@ export default function ProfilePage() {
                     <div
                       key={song.id}
                       className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition group cursor-pointer"
-                      onClick={() => playSong(song)}
+                      onClick={() => playSong(song, topSongs)}
                     >
                       <span className="text-text-secondary font-medium w-4 text-center">{idx + 1}</span>
                       <div className="w-12 h-12 rounded object-cover overflow-hidden relative">

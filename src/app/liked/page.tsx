@@ -14,7 +14,7 @@ export default function LikedSongsPage() {
       if (currentSong?.id === likedSongs[0].id) {
         togglePlay();
       } else {
-        playSong(likedSongs[0]);
+        playSong(likedSongs[0], likedSongs);
       }
     }
   };
@@ -69,7 +69,7 @@ export default function LikedSongsPage() {
             return (
               <div 
                 key={song.id}
-                onClick={() => playSong(song)}
+                onClick={() => playSong(song, likedSongs)}
                 className="flex items-center gap-4 p-2 rounded-md hover:bg-white/10 group cursor-pointer transition-colors"
               >
                 <div className="w-4 text-center text-text-secondary group-hover:hidden">

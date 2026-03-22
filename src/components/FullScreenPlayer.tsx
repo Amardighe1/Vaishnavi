@@ -8,7 +8,7 @@ import clsx from "clsx";
 import { useRouter } from "next/navigation";
 
 export default function FullScreenPlayer() {
-  const { currentSong, isPlaying, togglePlay, currentTime, duration, setProgress, isFullScreen, setFullScreen } = useAudioStore();
+  const { currentSong, isPlaying, togglePlay, playNext, playPrev, currentTime, duration, setProgress, isFullScreen, setFullScreen } = useAudioStore();
   const { user, isLiked, toggleLike, playlists, addToPlaylist } = useUserStore();
   const router = useRouter();
 
@@ -171,7 +171,7 @@ export default function FullScreenPlayer() {
             <LayoutList size={24} />
           </button>
           <div className="flex items-center gap-6">
-            <button className="text-white hover:text-love-soft transition-colors">
+            <button onClick={playPrev} className="text-white hover:text-love-soft transition-colors">
               <SkipBack size={36} className="fill-current" />
             </button>
             <button 
@@ -180,7 +180,7 @@ export default function FullScreenPlayer() {
             >
               {isPlaying ? <Pause size={28} className="fill-current" /> : <Play size={28} className="fill-current ml-1" />}
             </button>
-            <button className="text-white hover:text-love-soft transition-colors">
+            <button onClick={playNext} className="text-white hover:text-love-soft transition-colors">
               <SkipForward size={36} className="fill-current" />
             </button>
           </div>

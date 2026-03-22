@@ -50,7 +50,7 @@ export default function Home() {
     if (currentSong?.id === song.id) {
       togglePlay();
     } else {
-      playSong(song);
+      playSong(song, songs);
     }
   };
 
