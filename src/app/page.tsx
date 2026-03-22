@@ -77,9 +77,9 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-full relative overflow-x-hidden">
       {/* Absolute Ambient Background Orbs */}
-      <div className="absolute top-[-10%] md:top-[-20%] left-[-10%] w-[500px] h-[500px] bg-love-magenta rounded-full mix-blend-screen filter blur-[150px] opacity-30 animate-blob pointer-events-none" />
-      <div className="absolute top-[20%] right-[-10%] w-[400px] h-[400px] bg-love-accent rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob animate-delay-2000 pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-love-soft rounded-full mix-blend-screen filter blur-[180px] opacity-20 animate-blob animate-delay-4000 pointer-events-none" />
+      <div className="absolute top-[-10%] md:top-[-20%] left-[-10%] w-[500px] h-[500px] bg-love-magenta rounded-full mix-blend-screen filter blur-[150px] opacity-30 animate-blob pointer-events-none transform-gpu" />
+      <div className="absolute top-[20%] right-[-10%] w-[400px] h-[400px] bg-love-accent rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob animate-delay-2000 pointer-events-none transform-gpu" />
+      <div className="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-love-soft rounded-full mix-blend-screen filter blur-[180px] opacity-20 animate-blob animate-delay-4000 pointer-events-none transform-gpu" />
       
       <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-love opacity-40 lg:rounded-t-lg pointer-events-none -mt-4 -ml-4 -mr-4" />
 
